@@ -1,6 +1,9 @@
-FROM alpine:3.11
+FROM alpine:3
 
 MAINTAINER noc@lpweb.it
+
+ENV TZ=Europe/Rome
+RUN apk add tzdata && cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && apk del tzdata
 
 RUN apk add --update --no-cache \
     coreutils \
