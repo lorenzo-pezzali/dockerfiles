@@ -1,6 +1,6 @@
 FROM alpine:3
 
-MAINTAINER noc@lpweb.it
+LABEL maintener="noc@lpweb.it"
 
 ENV TZ=Europe/Rome
 RUN apk add tzdata && cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && apk del tzdata
@@ -46,9 +46,10 @@ COPY symfony.ini /etc/php7/conf.d/
 COPY symfony.ini /etc/php7/cli/conf.d/
 COPY xdebug.ini  /etc/php7/conf.d/
 
-COPY symfony.pool.conf /etc/php7/php-fpm.d/
+COPY symfony.pool.conf /etc/php7/php-fpm.d/www.conf
+
+WORKDIR /var/www/php
 
 CMD ["php-fpm7", "-F"]
 
-WORKDIR /var/www/symfony
-EXPOSE 9001
+EXPOSE 9000
