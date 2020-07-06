@@ -12,6 +12,7 @@ RUN apk add --update --no-cache \
     python2 \
     gcc \
     make \
+    openjdk9 \
     curl
 
 RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-setup.php.sig \
