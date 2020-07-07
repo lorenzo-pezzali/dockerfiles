@@ -8,7 +8,7 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /e
 RUN apk add --update --no-cache \
     coreutils \
     apache-ant \
-    nodejs \
+    nodejs npm \
     python2 \
     gcc \
     make \
