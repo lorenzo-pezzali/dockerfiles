@@ -24,4 +24,4 @@ RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-set
         && php composer-setup.php && rm composer-setup.php* \
         && chmod +x composer.phar && mv composer.phar /usr/bin/composer
 
-RUN chown -R 1000:1000 "/.npm"
+RUN chown -R 1000:1000 ".npm"
