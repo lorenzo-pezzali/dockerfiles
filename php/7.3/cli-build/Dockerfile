@@ -19,7 +19,7 @@ RUN apk add --no-cache libpng libpng-dev libzip libzip-dev postgresql-dev && \
     docker-php-ext-install gd zip pdo pdo_pgsql pdo_mysql && \
     apk del libpng-dev libzip-dev
 
-COPY ./php-ini-overrides.ini /etc/php7/conf.d/
+COPY ./php/7.3/cli-build/php-ini-overrides.ini /etc/php7/conf.d/
 
 RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-setup.php.sig \
         && curl -sS https://getcomposer.org/installer | tee composer-setup.php | sha384sum -c composer-setup.php.sig \
